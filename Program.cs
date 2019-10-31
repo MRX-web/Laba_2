@@ -1,78 +1,53 @@
 ﻿using System;
 
-namespace Task_4
+namespace Task_5
 {
-    class MainClass
+    class Program
     {
-       
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-             static int Factorial(int y)
-        {
-            if (y == 0)
-            {
-                return 1;
-            }
-            return y * Factorial(y - 1);
-        }
             int k = 1;
+            Console.WriteLine(" Введите N:");
             while (k == 1)
             {
                 try
                 {
-                    Console.WriteLine("Введите x:");
-                    int x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Введите q:");
-                    int q = Convert.ToInt32(Console.ReadLine());
-                    double sum = 1;
-                    k -= 1;
-                    int i = 0;
-                    int fact = 0;
-                    double znach1 = 0;
-                    for (double znach = 0; znach < q || -znach1 < q;)
-
+                   
+                    int N = Convert.ToInt32(Console.ReadLine());
+                    k = 0;
+                    byte search = 0;
+                    if (N > 0)
                     {
-                        znach1 = -Math.Pow(x, 2) / Factorial(fact + 2);
-                        x = (int)Math.Pow(x, 2);
-                        fact += 2;
-                        
-
-                        znach = Math.Pow(x, 2) / Factorial(fact + 2);
-                        x = (int)Math.Pow(x, 2);
-                        fact += 2;
-
-                        sum = sum + znach1 + znach;
-                        i += 2;
-                        if (znach > q)
+                        for (int x = 0; x <= N; x += 1)
                         {
-                            sum = sum - znach;
-                            i -= 1;
+                            for (int y = 0; y <= N; y += 1)
+                            {
+                                for (int z = 0; z <= N; z += 1)
+                                {
+                                    int sum = (int)(Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3));
+                                    if (sum == N)
+                                    {
+                                        Console.WriteLine("{0,3}{1,3},{2,3}", x, y, z);
+                                        search = 1;
+                                    }
+                                }
+                            }
+                            if (search == 0 && x == N)
+                            {
+                                Console.WriteLine("No such combination!");
+                            }
                         }
-                        if (-znach1 > q)
-                        {
-                            sum = sum - znach1;
-                            i -= 1;
-                        }
-
-                        
                     }
-                    if (i == 0)
-                    {
-                        i ++;
-                    }
-                    double CoSX = Math.Cos(sum);
-                     Console.WriteLine("Значение cos(x)= " + CoSX);
-                    Console.WriteLine("Колличество слагаемых = " + i);
                 }
-
-                catch
+                catch (FormatException)
                 {
-                    Console.WriteLine("Введте корректное значение:");
+                    Console.WriteLine("Введите корректное значение!");
                     k = 1;
                 }
-
-                Console.ReadKey();
             }
+
+
+            Console.ReadKey();
         }
     }
 }
