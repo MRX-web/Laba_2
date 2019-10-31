@@ -1,32 +1,78 @@
 ﻿using System;
 
-namespace Task_3
+namespace Task_4
 {
-    class Program
+    class MainClass
     {
-        static void Main(string[] args)
+       
+        public static void Main(string[] args)
         {
-            int i = 1;
-            int i1 = 1;
-            int numbers = 0;
-            while (i < 9999)
+             static int Factorial(int y)
+        {
+            if (y == 0)
             {
-                i = i + i1;
-                i1 = i1 + i;
-                Console.WriteLine(i);
-                Console.WriteLine(i1);
-                if (i > 1000 && i < 9999)
-                {
-                    numbers += 1;
-                }
-                if (i1 > 1000 && i1 < 9999)
-                {
-                    numbers += 1;
-                }
+                return 1;
             }
-            Console.WriteLine("Всего 4-ёх зн чисел");
-            Console.WriteLine(numbers);
-            Console.ReadKey();
+            return y * Factorial(y - 1);
+        }
+            int k = 1;
+            while (k == 1)
+            {
+                try
+                {
+                    Console.WriteLine("Введите x:");
+                    int x = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Введите q:");
+                    int q = Convert.ToInt32(Console.ReadLine());
+                    double sum = 1;
+                    k -= 1;
+                    int i = 0;
+                    int fact = 0;
+                    double znach1 = 0;
+                    for (double znach = 0; znach < q || -znach1 < q;)
+
+                    {
+                        znach1 = -Math.Pow(x, 2) / Factorial(fact + 2);
+                        x = (int)Math.Pow(x, 2);
+                        fact += 2;
+                        
+
+                        znach = Math.Pow(x, 2) / Factorial(fact + 2);
+                        x = (int)Math.Pow(x, 2);
+                        fact += 2;
+
+                        sum = sum + znach1 + znach;
+                        i += 2;
+                        if (znach > q)
+                        {
+                            sum = sum - znach;
+                            i -= 1;
+                        }
+                        if (-znach1 > q)
+                        {
+                            sum = sum - znach1;
+                            i -= 1;
+                        }
+
+                        
+                    }
+                    if (i == 0)
+                    {
+                        i ++;
+                    }
+                    double CoSX = Math.Cos(sum);
+                     Console.WriteLine("Значение cos(x)= " + CoSX);
+                    Console.WriteLine("Колличество слагаемых = " + i);
+                }
+
+                catch
+                {
+                    Console.WriteLine("Введте корректное значение:");
+                    k = 1;
+                }
+
+                Console.ReadKey();
+            }
         }
     }
 }
