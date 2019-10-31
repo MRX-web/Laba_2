@@ -1,52 +1,57 @@
 ﻿using System;
 
-namespace Task_5
+namespace Task_6
 {
     class Program
     {
         static void Main(string[] args)
         {
             int k = 1;
-            Console.WriteLine(" Введите N:");
             while (k == 1)
             {
                 try
                 {
-                   
+                    Console.WriteLine("Введиет число N, 1 < N < 100");
                     int N = Convert.ToInt32(Console.ReadLine());
-                    k = 0;
-                    byte search = 0;
-                    if (N > 0)
+
+                    int n = N % 10 ;
+                    k ++;
+
+                    if (N >= 1 && N <= 100)
                     {
-                        for (int x = 0; x <= N; x += 1)
+                        if (N > 10 && N < 15)
                         {
-                            for (int y = 0; y <= N; y += 1)
-                            {
-                                for (int z = 0; z <= N; z += 1)
-                                {
-                                    int sum = (int)(Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3));
-                                    if (sum == N)
-                                    {
-                                        Console.WriteLine("{0,3}{1,3},{2,3}", x, y, z);
-                                        search = 1;
-                                    }
-                                }
-                            }
-                            if (search == 0 && x == N)
-                            {
-                                Console.WriteLine("No such combination!");
-                            }
+                            Console.WriteLine("Пользователю " + N + " лет");
                         }
+                        else if (n == 1)
+                        {
+                            Console.WriteLine("Пользователю " + N + " год");
+                        }
+                        else if (n >= 2 && n < 5)
+                        {
+                            Console.WriteLine("Пользователю " + N + " года");
+                        }
+                        else if (n >= 5 || n == 0)
+                        {
+                            Console.WriteLine("Пользователю " + N + " лет");
+                        }
+
                     }
+
+                    else
+                    {
+                        Console.WriteLine("Введите корректное число!");
+                        k = 1;
+                    }
+
                 }
+
                 catch (FormatException)
                 {
-                    Console.WriteLine("Введите корректное значение!");
+                    Console.WriteLine("Введите корректное число!");
                     k = 1;
                 }
             }
-
-
             Console.ReadKey();
         }
     }
