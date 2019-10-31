@@ -1,60 +1,31 @@
 ﻿using System;
 
-namespace Task_2
+namespace Task_3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int k = 1;
-            Console.WriteLine("Введите количество слогаемых:\n");
-            while (k == 1)
+            int i = 1;
+            int i1 = 1;
+            int numbers = 0;
+            while (i < 9999)
             {
-                try
+                i = i + i1;
+                i1 = i1 + i;
+                Console.WriteLine(i);
+                Console.WriteLine(i1);
+                if (i > 1000 && i < 9999)
                 {
-
-                    int n = Convert.ToInt32(Console.ReadLine());
-
-                    double j = 1;
-
-                    double pi = 0;
-                    int i = 0;
-                    k++;
-                    while (i < n)
-                    {
-
-                        double sum = 1 / j;
-                        j += 2;
-                        
-
-                        double sum1 = -1 / j;
-                        j += 2;
-
-                        
-                        pi = pi + sum + sum1;
-                        i += 2;
-
-                        if (i > n) { 
-                            pi -= sum1; 
-                        }
-                    
-                    }
-
-                    pi = pi * 4;
-
-                    Console.WriteLine("Приблеженное число П:\n" + pi);
-
-
+                    numbers += 1;
                 }
-
-                catch (FormatException)
+                if (i1 > 1000 && i1 < 9999)
                 {
-                    Console.WriteLine("Введи корректное число:");
-                    k = 1;
-
+                    numbers += 1;
                 }
-
             }
+            Console.WriteLine("Всего 4-ёх зн чисел");
+            Console.WriteLine(numbers);
             Console.ReadKey();
         }
     }
